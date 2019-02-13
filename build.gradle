@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'org.beryx.jlink' version '2.6.0'
+}
+
+dependencies {
+    implementation 'com.github.almasb:fxgl:11.0-alpha'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    modules = ['javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.media']
+}
+
+mainClassName = "org.beryx.fxgl.puzzle/org.beryx.fxgl.puzzle.SlidingPuzzle"
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'puzzle'
+    }
+    jpackage {
+        // Set the environment property BADASS_JLINK_JPACKAGE_HOME or explicitly configure the below property
+        // jpackageHome = '/usr/lib/jvm/jdk13'
+        installerOptions = ['--win-per-user-install']
+    }
+}

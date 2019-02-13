@@ -1,0 +1,10 @@
+/*
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenLocal()
+        jcenter()
+    }
+}
+*/
+rootProject.name = 'fxgl-sliding-puzzle'

@@ -1,11 +1,12 @@
 ## FXGL Sliding Puzzle
 
 
-=== Getting started
-
 [cols="49a,2a,49a",frame=none,grid=none]
 |====
-| To start the application execute:
+|
+=== Getting started
+
+To start the application execute:
 
 ----
 ./gradlew run
@@ -15,12 +16,13 @@ You can move the tiles using the arrow keys or the mouse.
 
 |
 |
-image:https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/snapshot-small.png[role="thumb" link="https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/snapshot.png"]
+image:https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/snapshot-small.png[role="thumb" width="240" link="https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/snapshot.png"]
 |====
 
 
-
-
+[cols="49a,2a,49a",frame=none,grid=none]
+|====
+|
 === Creating application installers
 
 Execute:
@@ -30,10 +32,6 @@ Execute:
 
 The application installers will be available in the `build/jpackage` directory.
 
-
-[cols="49a,2a,49a",frame=none,grid=none]
-|====
-|
 .Example (Windows)
 ----
 build\jpackage\fxgl-sliding-puzzle-1.0.msi

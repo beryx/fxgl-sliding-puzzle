@@ -25,7 +25,7 @@ image:https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/sna
 
 The Gradle build script uses the https://github.com/beryx/badass-jlink-plugin/blob/master/README.md[badass-jlink plugin], which is able to create application installers. Under the hood, it calls the https://jdk.java.net/jpackage/[jpackage] tool introduced in Java 13, so you need to install jpackage on your machine. On Windows you also need to install at least one of the tools available for generating native packages: http://www.jrsoftware.org/isdl.php[Inno Setup] and/or http://wixtoolset.org/releases/[WIX].
 
-You also need to specify the home of your jpackage distribution in the BADASS_JLINK_JPACKAGE_HOME environment variable. Alternatively, you can explicitely configure this location in
+You also need to specify the home of your jpackage distribution in the BADASS_JLINK_JPACKAGE_HOME environment variable. Alternatively, you can explicitly configure this location in
 https://github.com/beryx/fxgl-sliding-puzzle/blob/490bf0fe35e27493640e647e92390cf7d15a11be/build.gradle#L26-L27[build.gradle].
 
 [cols="49a,2a,49a",frame=none,grid=none]

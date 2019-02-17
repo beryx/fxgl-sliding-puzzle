@@ -27,13 +27,13 @@ jlink {
         // jpackageHome = '/usr/lib/jvm/jdk13'
         def os = org.gradle.internal.os.OperatingSystem.current()
         if(os.macOsX) {
-/*
             installerOptions = [
                 '--mac-sign',
+/*
                 '--mac-signing-key-user-name', System.getenv('SIGNING_KEY_USER_NAME'),
                 '--mac-signing-keychain', System.getenv('SIGNING_KEYCHAIN_PATH')
-            ]
 */
+            ]
         } else if(os.windows) {
             installerOptions = ['--win-per-user-install', '--win-dir-chooser']
         }

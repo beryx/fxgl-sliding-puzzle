@@ -1,15 +1,27 @@
+if: tag IS blank
+
+os: osx
+
 language: java
 
 sudo: false
 
-before_install: wget https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
+jdk:
+  - openjdk11
+
+before_install:
+  - wget https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_osx-x64_bin.tar.gz
 
 install:
-  - . ./install-jdk.sh -F 11 -L BCL
   - chmod a+x ./gradlew
+  - pwd
+  - ls -al
+  - gunzip -c openjdk-13-jpackage+17_osx-x64_bin.tar.gz | tar xopf -
+  - ls -al
 
 cache:
   directories:
     - $HOME/.gradle
 
-script: ./gradlew --info --stacktrace jlink
+script:
+  - ./gradlew --info --stacktrace jpackage

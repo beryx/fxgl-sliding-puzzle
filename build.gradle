@@ -1,7 +1,7 @@
 plugins {
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.7'
-    id 'org.beryx.jlink' version '2.6.1'
+    id 'org.beryx.jlink' version '2.6.3'
 }
 
 dependencies {
@@ -25,6 +25,17 @@ jlink {
     jpackage {
         // Set the environment property BADASS_JLINK_JPACKAGE_HOME or explicitly configure the below property
         // jpackageHome = '/usr/lib/jvm/jdk13'
-        installerOptions = ['--win-per-user-install', '--win-dir-chooser']
+        def os = org.gradle.internal.os.OperatingSystem.current()
+        if(os.macOsX) {
+/*
+            installerOptions = [
+                '--mac-sign',
+                '--mac-signing-key-user-name', System.getenv('SIGNING_KEY_USER_NAME'),
+                '--mac-signing-keychain', System.getenv('SIGNING_KEYCHAIN_PATH')
+            ]
+*/
+        } else if(os.windows) {
+            installerOptions = ['--win-per-user-install', '--win-dir-chooser']
+        }
     }
 }

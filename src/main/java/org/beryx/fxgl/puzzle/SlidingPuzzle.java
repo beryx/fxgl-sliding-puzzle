@@ -40,7 +40,7 @@ public class SlidingPuzzle extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setWidth(TOTAL_WIDTH);
         settings.setHeight(TOTAL_HEIGHT);
-        settings.setTitle("Sliding Puzzle");
+        settings.setTitle(System.getProperty("fxgl.sliding.puzzle.title", "Sliding Puzzle"));
         settings.setVersion("1.0");
     }
 

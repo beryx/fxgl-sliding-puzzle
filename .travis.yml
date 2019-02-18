@@ -5,10 +5,12 @@ matrix:
     - os: linux
       env:
         - JPACKAGE_DOWNLOAD_URL=https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_linux-x64_bin.tar.gz
+        - JPACKAGE_ARCHIVE_NAME=openjdk-13-jpackage+17_linux-x64_bin.tar.gz
         - BADASS_JLINK_JPACKAGE_HOME=/home/travis/build/beryx/fxgl-sliding-puzzle/jdk-13.jdk
     - os: osx
       env:
         - JPACKAGE_DOWNLOAD_URL=https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_osx-x64_bin.tar.gz
+        - JPACKAGE_ARCHIVE_NAME=openjdk-13-jpackage+17_osx-x64_bin.tar.gz
         - BADASS_JLINK_JPACKAGE_HOME=/Users/travis/build/beryx/fxgl-sliding-puzzle/jdk-13.jdk/Contents/Home
 
 
@@ -26,7 +28,7 @@ install:
   - chmod a+x ./gradlew
   - pwd
   - ls -al
-  - gunzip -c openjdk-13-jpackage+17_osx-x64_bin.tar.gz | tar xopf -
+  - gunzip -c $JPACKAGE_ARCHIVE_NAME | tar xopf -
   - ls -al
 
 cache:

@@ -20,7 +20,7 @@ jdk:
   - openjdk11
 
 before_install:
-  - wget https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_osx-x64_bin.tar.gz
+  - wget $JPACKAGE_DOWNLOAD_URL
 
 install:
   - chmod a+x ./gradlew

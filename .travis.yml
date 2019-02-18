@@ -1,6 +1,8 @@
 if: tag IS blank
 
-os: osx
+os:
+#  - osx
+  - linux
 
 language: java
 

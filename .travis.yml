@@ -6,7 +6,7 @@ matrix:
       env:
         - JPACKAGE_DOWNLOAD_URL=https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_linux-x64_bin.tar.gz
         - JPACKAGE_ARCHIVE_NAME=openjdk-13-jpackage+17_linux-x64_bin.tar.gz
-        - BADASS_JLINK_JPACKAGE_HOME=/home/travis/build/beryx/fxgl-sliding-puzzle/jdk-13.jdk
+        - BADASS_JLINK_JPACKAGE_HOME=/home/travis/build/beryx/fxgl-sliding-puzzle/jdk-13
     - os: osx
       env:
         - JPACKAGE_DOWNLOAD_URL=https://download.java.net/java/early_access/jpackage/archive/17/binaries/openjdk-13-jpackage+17_osx-x64_bin.tar.gz

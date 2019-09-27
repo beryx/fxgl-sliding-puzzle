@@ -8,6 +8,7 @@ jdk:
   - openjdk11
 
 install:
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then sudo apt-get install fakeroot; fi
   - chmod a+x ./gradlew
 
 cache:

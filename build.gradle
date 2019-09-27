@@ -43,8 +43,10 @@ jlink {
         //
         //   OR
         //
-        // download and extract a JDK that contains the jpackage tool:
-        // jpackageHome = downloadJPackage()
+        // download and extract a JDK that contains the jpackage tool by setting the system property 'download.jpackage':
+        if(Boolean.getBoolean('download.jpackage')) {
+            jpackageHome = downloadJPackage()
+        }
 
         if(os.macOsX) {
             installerOptions = [
@@ -69,7 +71,7 @@ String[] getJPackageCoordinates() {
     if(os.macOsX) return [
         'https://download.java.net/java/early_access/jpackage/1/openjdk-14-jpackage+1-35_osx-x64_bin.tar.gz',
         'tar.gz',
-        'jdk-14.jdk'
+        'jdk-14.jdk/Contents/Home'
     ]
     if(os.windows) return [
         'https://download.java.net/java/early_access/jpackage/1/openjdk-14-jpackage+1-35_windows-x64_bin.zip',

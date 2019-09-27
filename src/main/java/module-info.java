@@ -1,3 +1,3 @@
 open module org.beryx.fxgl.puzzle {
-    requires fxgl.all;
+    requires com.almasb.fxgl.all;
 }

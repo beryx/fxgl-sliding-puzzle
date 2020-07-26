@@ -1,12 +1,12 @@
 plugins {
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
-    id 'org.beryx.jlink' version '2.17.6'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+    id 'org.beryx.jlink' version '2.21.1'
     id "de.undercouch.download" version "4.0.0"
 }
 
 dependencies {
-    implementation 'com.github.almasb:fxgl:11.8'
+    implementation 'com.github.almasb:fxgl:11.9'
 }
 
 repositories {
@@ -20,7 +20,11 @@ javafx {
     modules = ['javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.media']
 }
 
-mainClassName = "org.beryx.fxgl.puzzle/org.beryx.fxgl.puzzle.SlidingPuzzle"
+application {
+    mainClass = "org.beryx.fxgl.puzzle.SlidingPuzzle"
+    mainModule = "org.beryx.fxgl.puzzle"
+}
+
 
 ext.os = org.gradle.internal.os.OperatingSystem.current()
 
@@ -50,14 +54,14 @@ jlink {
 
         if(os.macOsX) {
             installerOptions = [
-                '--mac-sign',
+//                '--mac-sign',
 //                '--mac-signing-key-user-name', System.getenv('SIGNING_KEY_USER_NAME'),
 //                '--mac-signing-keychain', System.getenv('SIGNING_KEYCHAIN_PATH')
             ]
         } else if(os.windows) {
             installerOptions = ['--win-per-user-install', '--win-dir-chooser', '--win-menu']
-        } else {
-            installerType = 'deb' // 'rpm'
+//        } else {
+//            installerType = 'deb' // 'rpm'
         }
         installerOptions += '--verbose'
     }
@@ -69,17 +73,17 @@ jlink {
 /** @return  [url, extension, directory] */
 String[] getJPackageCoordinates() {
     if(os.macOsX) return [
-        'https://download.java.net/java/early_access/jpackage/1/openjdk-14-jpackage+1-49_osx-x64_bin.tar.gz',
+        'https://download.java.net/java/GA/jdk14/076bab302c7b4508975440c56f6cc26a/36/GPL/openjdk-14_osx-x64_bin.tar.gz',
         'tar.gz',
         'jdk-14.jdk/Contents/Home'
     ]
     if(os.windows) return [
-        'https://download.java.net/java/early_access/jpackage/1/openjdk-14-jpackage+1-49_windows-x64_bin.zip',
+        'https://download.java.net/java/GA/jdk14/076bab302c7b4508975440c56f6cc26a/36/GPL/openjdk-14_windows-x64_bin.zip',
         'zip',
         'jdk-14'
     ]
     return [
-        'https://download.java.net/java/early_access/jpackage/1/openjdk-14-jpackage+1-49_linux-x64_bin.tar.gz',
+        'https://download.java.net/java/GA/jdk14/076bab302c7b4508975440c56f6cc26a/36/GPL/openjdk-14_linux-x64_bin.tar.gz',
         'tar.gz',
         'jdk-14'
     ]

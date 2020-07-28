@@ -11,7 +11,6 @@ To start the application execute:
 ----
 ./gradlew run
 ----
-(A MSI installer for Windows is also available on the https://github.com/beryx/fxgl-sliding-puzzle//releases[releases page].)
 
 You can move the tiles using the arrow keys or the mouse. Have fun!
 
@@ -21,9 +20,10 @@ image:https://raw.githubusercontent.com/beryx/fxgl-sliding-puzzle/master/img/sna
 |====
 
 
-=== Creating application installers
+=== Creating application packages/installers
+Packages for Linux, macOS, and Windows are created automatically by GitHub Actions - see for example https://github.com/beryx/fxgl-sliding-puzzle/actions/runs/183513751[these packages]. Read the instructions below to see how to create them yourself.
 
-The Gradle build script uses the https://github.com/beryx/badass-jlink-plugin/blob/master/README.md[badass-jlink plugin], which is able to create application installers. Under the hood, it calls the https://jdk.java.net/jpackage/[jpackage] tool introduced in Java 14, so you need to install jpackage on your machine.
+The Gradle build script uses the https://github.com/beryx/badass-jlink-plugin/blob/master/README.md[badass-jlink plugin], which is able to create application packages/installers. Under the hood, it calls the https://jdk.java.net/jpackage/[jpackage] tool introduced in Java 14, so you need to install jpackage on your machine.
 On Windows you also need to install http://wixtoolset.org/releases/[WIX], which is required to generate msi or exe packages.
 
 You also need to specify the home of your jpackage distribution in the BADASS_JLINK_JPACKAGE_HOME environment variable. Alternatively, you can explicitly configure this location in

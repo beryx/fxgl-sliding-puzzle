@@ -17,6 +17,7 @@ repositories {
 }
 
 javafx {
+    version = '15'
     modules = ['javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.media']
 }
 
@@ -53,6 +54,7 @@ jlink {
         }
 
         if(os.macOsX) {
+           jvmArgs = ["-Duser.dir=/tmp"]
             installerOptions = [
 //                '--mac-sign',
 //                '--mac-signing-key-user-name', System.getenv('SIGNING_KEY_USER_NAME'),

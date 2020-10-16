@@ -67,7 +67,7 @@ public class SlidingPuzzle extends GameApplication {
             node = FXGL.getAssetLoader().loadTexture("tile0.png");
         } else {
             var tile = FXGL.getAssetLoader().loadTexture("tile.png");
-            Text numberText = FXGL.getUIFactory().newText("" + number, Color.DARKGREEN, 64);
+            Text numberText = FXGL.getUIFactoryService().newText("" + number, Color.DARKGREEN, 64);
             numberText.setTranslateX((TILE_SIZE - 40 - 40 * (number / 10)) / 2);
             numberText.setTranslateY((TILE_SIZE + 50) / 2);
             node = new Group(tile, numberText);
@@ -107,12 +107,12 @@ public class SlidingPuzzle extends GameApplication {
     }
 
     private Text createMovesText() {
-        Text movesText = FXGL.getUIFactory().newText("", Color.WHITE, 24);
+        Text movesText = FXGL.getUIFactoryService().newText("", Color.WHITE, 24);
         movesText.setTranslateX(BOARD_X + BOARD_SIZE + 40);
         movesText.setTranslateY(BOARD_Y + 120);
         movesText.textProperty().bind(
                 new ReadOnlyStringWrapper("Moves: ").concat(
-                    FXGL.getGameState().intProperty("moves").asString()
+                    FXGL.getWorldProperties().intProperty("moves").asString()
                 ));
         return movesText;
     }
@@ -183,7 +183,7 @@ public class SlidingPuzzle extends GameApplication {
                 case 3: moveRight(); break;
             }
         }
-        FXGL.getGameState().setValue("moves", 0);
+        FXGL.getWorldProperties().setValue("moves", 0);
         shuffling = false;
     }
 
@@ -211,9 +211,9 @@ public class SlidingPuzzle extends GameApplication {
         setTilePosition(tileNumberAtPos[pos], holePosition);
         setTilePosition(0, pos);
         holePosition = pos;
-        FXGL.getGameState().increment("moves", +1);
+        FXGL.getWorldProperties().increment("moves", +1);
         if(!shuffling && isSolved()) {
-            FXGL.getDisplay().showConfirmationBox("Congratulations!\nPlay again?", yes -> {
+            FXGL.getDialogService().showConfirmationBox("Congratulations!\nPlay again?", yes -> {
                 if (yes) {
                     shuffle();
                 }  else {
@@ -236,7 +236,6 @@ public class SlidingPuzzle extends GameApplication {
         }
         return true;
     }
-
 
     public static void main(String[] args) {
         launch(args);
